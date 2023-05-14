@@ -23,12 +23,12 @@ public class handsDown extends ListenerAdapter{
 }
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        String[] args = event.getMessage().getContentRaw().split("ping ",3);
-        String prefix = "ping";
+        String[] args = event.getMessage().getContentRaw().split(" ",3);
+        String prefix = "ping ";
 
         if (!event.getAuthor().isBot()) {
-            if (args[0].equals(prefix)) {
-                if(args.length == 1) {
+            if (args[0].equals(prefix+" ")) {
+                if(args.length == 1) {  // want: 앞의 명령어 배열빼고 출력하기~
                     event.getChannel().sendMessage("ping <code>").queue();
                 } else {
                     //String content = "```\n" + event.getMessage().getContentRaw() + "\n```";
